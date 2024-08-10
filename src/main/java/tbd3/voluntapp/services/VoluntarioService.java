@@ -9,7 +9,8 @@ import tbd3.voluntapp.Utils.Encrypter;
 import tbd3.voluntapp.entities.Habilidad;
 import tbd3.voluntapp.entities.Usuario;
 import tbd3.voluntapp.entities.Voluntario;
-import tbd3.voluntapp.entities.forms.JWTAuthenticated;
+import tbd3.voluntapp.entities.forms.AddHabilidadesForm;
+
 import tbd3.voluntapp.entities.forms.LoginForm;
 import tbd3.voluntapp.entities.responses.JWT;
 import tbd3.voluntapp.entities.responses.LoginResponse;
@@ -51,17 +52,15 @@ public class VoluntarioService {
         return voluntarioRepository.save(voluntario);
     }
 
-    public Voluntario addHabilidades(JWTAuthenticated<List<String>> data) {
-        AuthJWT auth = new AuthJWT(JWTGenerator);
-        JWT user = auth.validateVoluntario(data.getToken());
-        if (user == null) {
-            return null;
-        }
+    public Voluntario addHabilidades(AddHabilidadesForm form, JWT user) {
+
         Voluntario voluntario = getVoluntario(user.getId());
-        List<String> idHabilidades = data.getData();
+        List<String> idHabilidades = form.getHabilidades();
 
         List<Habilidad> currentHabilidades = voluntario.getHabilidades();
+
         List<String> currentIds = currentHabilidades.stream().map(Habilidad::getId).toList();
+
         idHabilidades.addAll(currentIds);
         Set<String> habilidadesSet = new HashSet<>(idHabilidades);
 

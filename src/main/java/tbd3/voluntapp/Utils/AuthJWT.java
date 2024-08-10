@@ -1,9 +1,5 @@
 package tbd3.voluntapp.Utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import tbd3.voluntapp.entities.Usuario;
 import tbd3.voluntapp.entities.responses.JWT;
 import tbd3.voluntapp.repositories.JWTMiddlewareRepositoryImpl;
 
@@ -15,28 +11,36 @@ public class AuthJWT {
         this.jwtMiddleware = jwtMiddleware;
     }
 
-    public JWT validateAdmin(String token) {
-        if (!jwtMiddleware.validateToken(token)) {
+    public JWT validateAdminHeader(String authorization){
+        String[] parts = authorization.split(" ");
+        if (parts.length != 2) {
             return null;
         }
 
+        if (!jwtMiddleware.validateToken(parts[1])) {
+            return null;
+        }
 
-        JWT user = jwtMiddleware.decodeJWT(token);
+        JWT user = jwtMiddleware.decodeJWT(parts[1]);
         if (user.getUsertype() == 1) {
             return user;
         };
+
         return null;
     }
 
-    public JWT validateVoluntario(String token) {
+    public JWT validateVoluntarioHeader(String authorization){
+        String[] parts = authorization.split(" ");
+        if (parts.length != 2) {
+            return null;
+        }
         System.out.println("validando voluntario");
-        if (!jwtMiddleware.validateToken(token)){
+        if (!jwtMiddleware.validateToken(parts[1])){
             System.out.println("Token invalido");
             return null;
         }
 
-
-        JWT user = jwtMiddleware.decodeJWT(token);
+        JWT user = jwtMiddleware.decodeJWT(parts[1]);
         System.out.println(user.toString());
         if (user.getUsertype() == 2) {
 

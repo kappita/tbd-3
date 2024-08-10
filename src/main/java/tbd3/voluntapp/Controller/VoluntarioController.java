@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tbd3.voluntapp.Utils.AuthJWT;
 import tbd3.voluntapp.entities.Voluntario;
 import tbd3.voluntapp.entities.forms.AddHabilidadesForm;
-import tbd3.voluntapp.entities.forms.JWTAuthenticated;
+
 import tbd3.voluntapp.entities.forms.LoginForm;
 import tbd3.voluntapp.entities.responses.JWT;
 import tbd3.voluntapp.entities.responses.LoginResponse;
@@ -32,12 +32,9 @@ public class VoluntarioController {
     JWTMiddlewareRepositoryImpl JWTMiddleware;
 
     @GetMapping("")
-    public ResponseEntity<List<Voluntario>> listVoluntarios(@RequestHeader("Authorization") String authentication) {
-        String[] parts = authentication.split(" ");
-        if (parts.length != 2) {
-            return ResponseEntity.badRequest().build();
-        }
-        JWT validation = new AuthJWT(JWTMiddleware).validateAdmin(parts[1]);
+    public ResponseEntity<List<Voluntario>> listVoluntarios(@RequestHeader("Authorization") String authorization) {
+
+        JWT validation = new AuthJWT(JWTMiddleware).validateAdminHeader(authorization);
         if (validation == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -56,12 +53,9 @@ public class VoluntarioController {
     }
 
     @GetMapping("/byId/{id}")
-    public ResponseEntity<Optional<Voluntario>> getVoluntario(@PathVariable String id, @RequestHeader("Authorization") String authentication) {
-        String[] parts = authentication.split(" ");
-        if (parts.length != 2) {
-            return ResponseEntity.badRequest().build();
-        }
-        JWT validation = new AuthJWT(JWTMiddleware).validateAdmin(parts[1]);
+    public ResponseEntity<Optional<Voluntario>> getVoluntario(@PathVariable String id, @RequestHeader("Authorization") String authorization) {
+
+        JWT validation = new AuthJWT(JWTMiddleware).validateAdminHeader(authorization);
         if (validation == null) {
             return ResponseEntity.status(401).build();
         }
@@ -70,10 +64,17 @@ public class VoluntarioController {
     }
 
     @PostMapping("/addHabilidades")
-    public ResponseEntity<Voluntario> addHabilidades(@RequestBody JWTAuthenticated<List<String>> data) {
+    public ResponseEntity<Voluntario> addHabilidades(@RequestBody AddHabilidadesForm form,@RequestHeader("Authorization") String authorization) {
 
-        return ResponseEntity.ok(voluntarioService.addHabilidades(data));
+        JWT user = new AuthJWT(JWTMiddleware).validateVoluntarioHeader(authorization);
+        if (user == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(voluntarioService.addHabilidades(form,user));
     }
+
+
 
 
 }

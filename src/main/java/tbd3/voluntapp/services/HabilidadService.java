@@ -7,7 +7,7 @@ import tbd3.voluntapp.Utils.AuthJWT;
 import tbd3.voluntapp.Utils.Encrypter;
 import tbd3.voluntapp.entities.Habilidad;
 import tbd3.voluntapp.entities.Voluntario;
-import tbd3.voluntapp.entities.forms.JWTAuthenticated;
+
 import tbd3.voluntapp.entities.forms.LoginForm;
 import tbd3.voluntapp.entities.responses.JWT;
 import tbd3.voluntapp.entities.responses.LoginResponse;
@@ -29,14 +29,9 @@ public class HabilidadService {
         this.habilidadRepository = habilidadRepository;
     }
 
-    public Habilidad addHabilidad(JWTAuthenticated<Habilidad> data) {
-        AuthJWT auth = new AuthJWT(JWTGenerator);
-        JWT user = auth.validateAdmin(data.getToken());
-        if (user == null) {
-            return null;
-        }
+    public Habilidad addHabilidad(Habilidad habilidad) {
 
-        return habilidadRepository.save(data.getData());
+        return habilidadRepository.save(habilidad);
     }
 
 }
