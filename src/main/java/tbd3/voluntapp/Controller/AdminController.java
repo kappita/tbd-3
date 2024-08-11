@@ -27,7 +27,7 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping("/register")
-    public ResponseEntity<RegisterResponse> createVoluntario(@RequestBody Admin admin) {
+    public ResponseEntity<RegisterResponse> createAdmin(@RequestBody Admin admin) {
         return ResponseEntity.ok(adminService.register(admin));
     }
 
@@ -35,4 +35,13 @@ public class AdminController {
     public ResponseEntity<LoginResponse> login(@RequestBody LoginForm form) {
         return ResponseEntity.ok(adminService.login(form));
     }
+
+    @GetMapping("/init")
+    public String init() {
+        Admin admin1 = new Admin("admin1", "admin1");
+        adminService.register(admin1);
+        return "Admin de prueba creado creado";
+    }
+
+
 }
