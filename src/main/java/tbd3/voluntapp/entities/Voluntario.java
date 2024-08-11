@@ -19,6 +19,13 @@ public class Voluntario extends Usuario {
         this.habilidades = new ArrayList<>();
     }
 
+    public Voluntario(String email, String password, String nombre, String rut) {
+        super(email, password, null);
+        this.nombre = nombre;
+        this.rut = rut;
+        this.habilidades = new ArrayList<>();
+    }
+
     public String getNombre() {
         return nombre;
     }
