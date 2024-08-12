@@ -28,19 +28,14 @@ public class HabilidadController {
     private VoluntarioRepository voluntarioRepository;
 
     @GetMapping("")
-    public ResponseEntity<List<Habilidad>> getHabilidades(@RequestHeader("Authorization") String authorization) {
-
-        JWT validation = new AuthJWT(JWTMiddleware).validateAdminHeader(authorization);
-        if (validation == null) {
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<List<Habilidad>> getHabilidades() {
 
         return ResponseEntity.ok(habilidadRepository.findAll());
     }
 
     @PostMapping("")
     public ResponseEntity<Habilidad> createHabilidad(@RequestBody Habilidad habilidad,@RequestHeader("Authorization") String authorization) {
-
+        System.out.println(habilidad);
         JWT validation = new AuthJWT(JWTMiddleware).validateAdminHeader(authorization);
         if (validation == null) {
             return ResponseEntity.badRequest().build();
