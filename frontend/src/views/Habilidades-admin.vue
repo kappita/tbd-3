@@ -46,6 +46,7 @@
 import Navbar from '@/components/Navbar.vue';
 import { ref } from 'vue';
 import { obtenerHabilidades } from './apiService';
+import { userJwt } from '@/store/store'
 import axios from 'axios';
 
 export default {
@@ -71,7 +72,11 @@ export default {
     };
 
     const agregarHabilidad = () => {
-      axios.post('http://localhost:8080/habilidades', nuevaHabilidad.value)
+      axios.post('http://localhost:8080/habilidades', nuevaHabilidad.value, {
+        headers: {
+          "Authorization": "Basic " + userJwt.value
+        }
+      })
         .then(() => {
           fetchHabilidades();
           nuevaHabilidad.value.nombre = '';

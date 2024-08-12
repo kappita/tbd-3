@@ -76,14 +76,14 @@ const sendForm = () => {
             window.alert("Debes ingresar un RUT para el tipo Voluntario.");
             return;
         }
-        axios.post("http://localhost:8080/voluntarios/save", body).then(response => {
+        axios.post("http://localhost:8080/voluntarios/register", body).then(response => {
             exito.value = true;
             console.log(response.data);
         }).catch(error => console.error('Error:', error));
     } else if (usertype.value === '2') { // Administrador
         body.nombre = "";
         body.rut = "";
-        axios.post("http://localhost:8080/administradores/save", body).then(response => {
+        axios.post("http://localhost:8080/admin/register", body).then(response => {
             exito.value = true;
             console.log(response.data);
         }).catch(error => console.error('Error:', error));

@@ -3,7 +3,10 @@
     <Navbar />
     <div class="skills-main">
       <div class="skills-content">
-        <h1 class="main-title">Agrega tus habilidades aquí</h1>
+        <div class="current-skills">
+          <h1 class="main-title">Agrega tus habilidades aquí</h1>
+        </div>
+        <p>{{ mensajeExito }}</p>
         <form @submit.prevent="registrarVoluntario">
           <div class="selector-multiple">
             <h2 class="sub-title">Ingresa tus habilidades:</h2>
@@ -47,6 +50,7 @@ export default {
   },
   created() {
     this.fetchHabilidades();
+    this.registrarVoluntario()
   },
   methods: {
     fetchHabilidades() {
@@ -59,14 +63,18 @@ export default {
         });
     },
     registrarVoluntario() {
+      console.log(this.voluntario.habilidades)
       const body = {
-        token: userJwt.value,
-        ability_ids: this.voluntario.habilidades
+        habilidades: this.voluntario.habilidades
       };
 
-      axios.post("http://localhost:8080/voluntarios/agregarHabilidades", body)
+      axios.post("http://localhost:8080/voluntarios/addHabilidades", body, {
+        headers: {
+          Authorization: "Basic " + userJwt.value
+        }
+      })
         .then(response => {
-          this.mensajeExito = response.data;
+          this.mensajeExito = "Tus habilidades ahora son: " + response.data.habilidades.map(e => e.nombre).join(", ");
         })
         .catch(error => {
           this.mensajeExito = "El correo electrónico es incorrecto";
@@ -92,6 +100,11 @@ export default {
 
 h1 {
   font-weight: bold;
+}
+
+.current-habilidades {
+  display: flex;
+
 }
 
 .skills-content {
@@ -159,6 +172,11 @@ input[type="email"]:focus {
 
 label {
   color: black;
+}
+
+p {
+  color: black;
+  text-align: center;
 }
 
 .btn-container {

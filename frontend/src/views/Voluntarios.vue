@@ -4,6 +4,10 @@
       <div class="voluntarios-main">
         <div class="voluntarios-content">
           <h1>Listado Completo de Voluntarios</h1>
+
+          <h2>Cantidad total de habilidades entre todos los voluntarios</h2>
+          <h2>{{ cantidad_habilidades }}</h2>
+          <br>
           <div v-if="voluntarios.length">
             <ul>
               <li v-for="voluntario in voluntarios" :key="voluntario.id" class="voluntario-item">
@@ -25,6 +29,7 @@
   <script>
   import axios from 'axios';
   import Navbar from '@/components/Navbar.vue';
+  import { userJwt } from '@/store/store'
   
   export default {
     components: {
@@ -32,17 +37,36 @@
     },
     data() {
       return {
-        voluntarios: []
+        voluntarios: [],
+        cantidad_habilidades: 0
       };
     },
     created() {
       this.fetchVoluntarios();
+      this.fetchCount();
     },
     methods: {
       fetchVoluntarios() {
-        axios.get("http://localhost:8080/voluntarios/getAll")
+        axios.get("http://localhost:8080/voluntarios", {
+          headers: {
+            Authorization: "Basic " + userJwt.value 
+          }
+        })
           .then(response => {
             this.voluntarios = response.data;
+          })
+          .catch(error => {
+            console.error("Hubo un error al obtener los voluntarios:", error);
+          });
+      },
+      fetchCount() {
+        axios.get("http://localhost:8080/habilidades/count", {
+          headers: {
+            Authorization: "Basic " + userJwt.value 
+          }
+        })
+          .then(response => {
+            this.cantidad_habilidades = response.data;
           })
           .catch(error => {
             console.error("Hubo un error al obtener los voluntarios:", error);
@@ -85,6 +109,14 @@
   }
   
   h1 {
+    color: #101935;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  h2 {
     color: #101935;
     font-family: 'Roboto', sans-serif;
     text-align: center;
