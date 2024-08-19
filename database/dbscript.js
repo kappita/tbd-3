@@ -191,32 +191,26 @@ db.createCollection("habilidad")
 
 db.habilidad.insertMany([
     {
-        _id: 1,
         nombre: "Primeros Auxilios",
         descripcion: "Capacidad para realizar atención inicial en emergencias médicas."
     },
     {
-        _id: 2,
         nombre: "Incendios Forestales",
         descripcion: "Experiencia en combate de incendios en áreas naturales."
     },
     {
-        _id: 3,
         nombre: "Remoción de escombros",
         descripcion: "Capacidad para realizar labores de remoción de escombros."
     },
     {
-        _id: 4,
         nombre: "Asistencia Psicológica",
         descripcion: "Experiencia en el rubro de la psicología y trata de personas."
     },
     {
-        _id: 5,
         nombre: "Búsqueda y Rescate",
         descripcion: "Habilidades especializadas en la localización y recuperación de personas atrapadas o perdidas."
     },
     {
-        _id: 6,
         nombre: "Cocinero",
         descripcion: "Experiencia en Cocina para ollas comunes."
     }
@@ -227,7 +221,6 @@ db.createCollection("admin")
 db.admin.createIndex({ "email": 1 }, { unique: true });
 
 db.admin.insertMany([
-    { _id: 1, email: "admin1@example.com", password: "password" },
-    { _id: 2, email: "admin2@example.com", password: "otrapassword" }
+    { email: "admin1@example.com", password: "password" },
+    { email: "admin2@example.com", password: "otrapassword" }
 ]);
-

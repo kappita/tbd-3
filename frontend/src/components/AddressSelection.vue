@@ -6,7 +6,7 @@
       placeholder="Ingresa tu dirección"
       ref="addressInput"
     />
-    <div id="map" style="height: 400px;" ref="map"></div>
+    <div id="map" style="height: 170px;" ref="map"></div>
   </div>
 </template>
 

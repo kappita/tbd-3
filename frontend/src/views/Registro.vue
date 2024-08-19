@@ -80,8 +80,8 @@ const sendForm = () => {
         email: email.value,
         password: password.value,
         rut: rut.value,
-        longitud: coordinates.value.lng,
-        latitud: coordinates.value.lat
+        longitud: coordinates.value ? coordinates.value.lng : null,
+        latitud: coordinates.value ? coordinates.value.lat : null
     };
 
     console.log(body)
@@ -119,13 +119,18 @@ const sendForm = () => {
   }
 }
 
+.template {
+  overflow: auto;
+}
+
 .register-main {
   background-image: linear-gradient(to bottom right, #f0f9ff, #cbebff);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .register-content {
@@ -134,6 +139,7 @@ const sendForm = () => {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 350px;
+  height: auto;
   animation: fadeIn 1s ease-in-out;
 }
 
