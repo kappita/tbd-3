@@ -1,150 +1,189 @@
 db.createCollection("voluntario")
 
-db.voluntario.createIndex({ email: 1 }, { unique: true });
-db.voluntario.createIndex({ rut: 1 }, { unique: true });
-
+db.voluntario.createIndex({ email: 1 }, { unique: true })
+db.voluntario.createIndex({ rut: 1 }, { unique: true })
 
 db.voluntario.insertMany([
     {
-        
+        _id: 1,
         nombre: "Andrea Juárez",
-        rut: "12345678-9",
-        habilidades:[],
         email: "andrea.juarez@example.com",
-        password: ")64<JA5c3@-?3In6J4AEB",
+        password: "pass123",
+        rut: "12345678-9",
+        latitud: -33.475460477185464,
+        longitud: -70.72326024012591,
+
     },
     {
+        _id: 2,
         nombre: "Luis Navarro",
-        rut: "23456789-0",
-        habilidades:[],
         email: "luis.navarro@example.com",
-        password: ")A;AKhB8?,>?=m5I3@DA;",
+        password: "pass456",
+        rut: "23456789-0",
+        latitud: -33.47538868364822,
+        longitud: -70.72413394422644,
     },
     {
+        _id: 3,
         nombre: "Carla Espinoza",
-        rut: "14567890-1",
-        habilidades:[],
         email: "carla.espinoza@example.com",
-        password: ")8'JD=`<<;5;=I1o7K5BF",
+        password: "pass789",
+        rut: "14567890-1",
+        latitud: -39.295751618022386,
+        longitud: -72.23595293617713,
     },
     {
+        _id: 4,
         nombre: "Marco Antonio",
-        rut: "15678901-2",
-        habilidades:[],
         email: "marco.antonio@example.com",
-        password: ")B'J;K`87?;;7>n6J4AEB",
+        password: "pass012",
+        rut: "15678901-2",
+        latitud: -39.295938693967116,
+        longitud: -72.23591193023263,
     },
     {
+        _id: 5,
         nombre: "Ximena Soto",
-        rut: "16789012-3",
-        habilidades:[],
         email: "ximena.soto@example.com",
-        password: ")M/E=J5c<:@<l4H2?C@:b",
+        password: "pass345",
+        rut: "16789012-3",
+        latitud: -39.295938693967116,
+        longitud: -72.23591193023263,
     },
     {
+        _id: 6,
         nombre: "Diego Morales",
-        rut: "17890123-4",
-        habilidades:[],
         email: "diego.morales@example.com",
-        password: ")9/=?K`D8=-93Bn6J4AEB",
+        password: "pass678",
+        rut: "17890123-4",
+        latitud: -39.29429961138347,
+        longitud: -72.23642324842609,
     },
     {
+        _id: 7,
         nombre: "Rosa Campos",
-        rut: "18901234-5",
-        habilidades:[],
         email: "rosa.campos@example.com",
-        password: ")G5K9h786;;@l4H2?C@:b",
+        password: "pass901",
+        rut: "18901234-5",
+        latitud: -39.294483889806955,
+        longitud: -72.23594449904962,
     },
     {
+        _id: 8,
         nombre: "Javier López",
-        rut: "19012345-6",
-        habilidades:[],
         email: "javier.lopez@example.com",
-        password: ")?'NAAFc5:<2Hm5I3@DA;",
+        password: "pass234",
+        rut: "19012345-6",
+        latitud: -39.29408053252056,
+        longitud: -72.23546478607034,
     },
     {
+        _id: 9,
         nombre: "Mónica Gutiérrez",
-        rut: "20123456-7",
-        habilidades:[],
         email: "monica.gutierrez@example.com",
-        password: ")B5FA?5c0@@63AB6Lq9M7",
+        password: "pass567",
+        rut: "20123456-7",
+        latitud: -39.29572248782302,
+        longitud: -72.23887361702606,
     },
     {
+        _id: 10,
         nombre: "Esteban Rojas",
-        rut: "21234567-8",
-        habilidades:[],
         email: "esteban.rojas@example.com",
-        password: "):9L=>5EU=;7/Bn6J4AEB",
+        password: "pass890",
+        rut: "21234567-8",
+        latitud: -39.29436198328951,
+        longitud: -72.23953432795741,
     },
     {
+        _id: 11,
         nombre: "Carmen Herrera",
-        rut: "20345678-0",
-        habilidades:[],
         email: "carmen.herrera@example.com",
-        password: ")8'JEABc10>?3A1o7K5BF",
+        password: "pass1234",
+        rut: "20345678-0",
+        latitud: -39.29418905819766,
+        longitud: -72.23939122721433,
     },
     {
+        _id: 12,
         nombre: "Fernando Mora",
-        rut: "23456789-1",
-        habilidades:[],
         email: "fernando.mora@example.com",
-        password: ");+JF=B;8W9<@0n6J4AEB",
+        password: "pass5678",
+        rut: "23456789-1",
+        latitud: -53.161673785843504,
+        longitud: -70.94343055289791,
     },
     {
+        _id: 13,
         nombre: "Gabriela Castillo",
-        rut: "21567890-2",
-        habilidades:[],
         email: "gabriela.castillo@example.com",
-        password: ")<':JE9C*W/.AC9=>Br:N",
+        password: "pass91011",
+        rut: "21567890-2",
+        latitud: -53.160851706087755,
+        longitud: -70.94572199434975,
     },
     {
+        _id: 14,
         nombre: "Mauricio Pinto",
-        rut: "22678901-3",
-        habilidades:[],
         email: "mauricio.pinto@example.com",
-        password: ")B'MJE7@8W<6<C?o7K5BF",
+        password: "pass1213",
+        rut: "22678901-3",
+        latitud: -27.3590183560186,
+        longitud: -70.31368820371438,
     },
     {
+        _id: 15,
         nombre: "Lucia Méndez",
-        rut: "22789012-4",
-        habilidades:[],
         email: "lucia.mendez@example.com",
-        password: ")A;;A=`D.902Hm5I3@DA;",
+        password: "pass1415",
+        rut: "22789012-4",
+        latitud: -27.35836069846974,
+        longitud: -70.31283756029991,
     },
     {
+        _id: 16,
         nombre: "Carmen Rosario",
-        rut: "21445678-0",
-        habilidades:[],
         email: "carmen.reosario@example.com",
-        password: ")8'JEABc;0;@/A9@p8L6C",
+        password: "pass1234",
+        rut: "21445678-0",
+        latitud: -20.235032129183317,
+        longitud: -70.13005699582126,
     },
     {
+        _id: 17,
         nombre: "Fernando Martinez",
-        rut: "22456789-2",
-        habilidades:[],
         email: "fernando.martinez@example.com",
-        password: ");+JF=B;8W9.@C9?7Mr:N",
+        password: "pass5678",
+        rut: "22456789-2",
+        latitud: -20.237267679052415,
+        longitud: -70.13047671112301,
     },
     {
+        _id: 18,
         nombre: "Gabriela Gaete",
-        rut: "20567890-2",
-        habilidades:[],
         email: "gabriela.gaete@example.com",
-        password: ")<':JE9C*W3.3C5o7K5BF",
+        password: "pass91011",
+        rut: "20567890-2",
+        latitud: -20.236845974454152,
+        longitud: -70.1310180399508,
     },
     {
+        _id: 19,
         nombre: "Mauricio Martinez",
-        rut: "20678901-2",
-        habilidades:[],
         email: "mauricio.martinez@example.com",
-        password: ")B'MJE7@8W9.@C9?7Mr:N",
+        password: "pass1213",
+        rut: "20678901-2",
+        latitud: -20.236312329044015,
+        longitud: -70.13053487778923,
     },
     {
+        _id: 20,
         nombre: "Lucia Petinelli",
-        rut: "21789012-2",
-        habilidades:[],
         email: "lucia.petinelli@example.com",
-        password: ")A;;A=`G.?5;3;<:p8L6C",
+        password: "pass1415",
+        rut: "21789012-2",
+        latitud: -33.23262573587894,
+        longitud: -70.80860877689753,
     }
 ]);
 
@@ -152,26 +191,32 @@ db.createCollection("habilidad")
 
 db.habilidad.insertMany([
     {
+        _id: 1,
         nombre: "Primeros Auxilios",
         descripcion: "Capacidad para realizar atención inicial en emergencias médicas."
     },
     {
+        _id: 2,
         nombre: "Incendios Forestales",
         descripcion: "Experiencia en combate de incendios en áreas naturales."
     },
     {
+        _id: 3,
         nombre: "Remoción de escombros",
         descripcion: "Capacidad para realizar labores de remoción de escombros."
     },
     {
+        _id: 4,
         nombre: "Asistencia Psicológica",
         descripcion: "Experiencia en el rubro de la psicología y trata de personas."
     },
     {
+        _id: 5,
         nombre: "Búsqueda y Rescate",
         descripcion: "Habilidades especializadas en la localización y recuperación de personas atrapadas o perdidas."
     },
     {
+        _id: 6,
         nombre: "Cocinero",
         descripcion: "Experiencia en Cocina para ollas comunes."
     }
@@ -182,7 +227,7 @@ db.createCollection("admin")
 db.admin.createIndex({ "email": 1 }, { unique: true });
 
 db.admin.insertMany([
-    { email: "admin1@example.com", password: ")6*EAJcu.C-:>;5]5BA6:" },
-    { email: "david.admin@example.com", password: ")9'NA@`8-85;l4H2?C@:b" }
+    { _id: 1, email: "admin1@example.com", password: "password" },
+    { _id: 2, email: "admin2@example.com", password: "otrapassword" }
 ]);
 
