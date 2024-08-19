@@ -13,6 +13,7 @@
         <input v-if="usertype === '1'" :placeholder="namePlaceholder" type="text" v-model="name">
         <input :placeholder="emailPlaceholder" type="email" v-model="email">
         <input placeholder="Contraseña" type="password" v-model="password">
+        <AddressSelection v-if="usertype === '1'" v-on:location_selected="e => coordinates = e"></AddressSelection>
         <button @click="sendForm">Registrarse</button>
       </div>
       <div v-if="exito" class="mensaje-exito">
@@ -24,14 +25,18 @@
 
 <script setup>
 import Navbar from '@/components/Navbar.vue';
+import AddressSelection from '@/components/AddressSelection.vue';
 import axios from 'axios';
 import { ref, computed } from 'vue';
+
+console.log(import.meta.env.VITE_GOOGLE_MAPS_API_KEY)
 
 const usertype = ref('');
 const name = ref("");
 const email = ref("");
 const password = ref("");
 const rut = ref("");
+const coordinates = ref(null)
 const exito = ref(false);
 const mensajeExito = "Usuario registrado exitosamente";
 
@@ -64,12 +69,22 @@ const sendForm = () => {
         return;
     }
 
+    if (usertype.value === '1' && coordinates.value == null) {
+      window.alert("Debes escoger una dirección")
+      return;
+    }
+
+
     let body = {
         nombre: name.value,
         email: email.value,
         password: password.value,
-        rut: rut.value
+        rut: rut.value,
+        longitud: coordinates.value.lng,
+        latitud: coordinates.value.lat
     };
+
+    console.log(body)
 
     if (usertype.value === '1') { // Voluntario
         if (!rut.value) {
