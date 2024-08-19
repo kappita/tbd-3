@@ -5,7 +5,6 @@ db.voluntario.createIndex({ rut: 1 }, { unique: true })
 
 db.voluntario.insertMany([
     {
-        _id: 1,
         nombre: "Andrea Juárez",
         email: "andrea.juarez@example.com",
         password: "pass123",
@@ -16,7 +15,6 @@ db.voluntario.insertMany([
 
     },
     {
-        _id: 2,
         nombre: "Luis Navarro",
         email: "luis.navarro@example.com",
         password: "pass456",
@@ -26,7 +24,6 @@ db.voluntario.insertMany([
         longitud: -70.72413394422644,
     },
     {
-        _id: 3,
         nombre: "Carla Espinoza",
         email: "carla.espinoza@example.com",
         password: "pass789",
@@ -36,7 +33,6 @@ db.voluntario.insertMany([
         longitud: -72.23595293617713,
     },
     {
-        _id: 4,
         nombre: "Marco Antonio",
         email: "marco.antonio@example.com",
         password: "pass012",
@@ -46,7 +42,6 @@ db.voluntario.insertMany([
         longitud: -72.23591193023263,
     },
     {
-        _id: 5,
         nombre: "Ximena Soto",
         email: "ximena.soto@example.com",
         password: "pass345",
@@ -56,7 +51,6 @@ db.voluntario.insertMany([
         longitud: -72.23591193023263,
     },
     {
-        _id: 6,
         nombre: "Diego Morales",
         email: "diego.morales@example.com",
         password: "pass678",
@@ -66,7 +60,6 @@ db.voluntario.insertMany([
         longitud: -72.23642324842609,
     },
     {
-        _id: 7,
         nombre: "Rosa Campos",
         email: "rosa.campos@example.com",
         password: "pass901",
@@ -76,7 +69,6 @@ db.voluntario.insertMany([
         longitud: -72.23594449904962,
     },
     {
-        _id: 8,
         nombre: "Javier López",
         email: "javier.lopez@example.com",
         password: "pass234",
@@ -86,7 +78,6 @@ db.voluntario.insertMany([
         longitud: -72.23546478607034,
     },
     {
-        _id: 9,
         nombre: "Mónica Gutiérrez",
         email: "monica.gutierrez@example.com",
         password: "pass567",
@@ -96,7 +87,6 @@ db.voluntario.insertMany([
         longitud: -72.23887361702606,
     },
     {
-        _id: 10,
         nombre: "Esteban Rojas",
         email: "esteban.rojas@example.com",
         password: "pass890",
@@ -106,7 +96,6 @@ db.voluntario.insertMany([
         longitud: -72.23953432795741,
     },
     {
-        _id: 11,
         nombre: "Carmen Herrera",
         email: "carmen.herrera@example.com",
         password: "pass1234",
@@ -116,7 +105,6 @@ db.voluntario.insertMany([
         longitud: -72.23939122721433,
     },
     {
-        _id: 12,
         nombre: "Fernando Mora",
         email: "fernando.mora@example.com",
         password: "pass5678",
@@ -126,7 +114,6 @@ db.voluntario.insertMany([
         longitud: -70.94343055289791,
     },
     {
-        _id: 13,
         nombre: "Gabriela Castillo",
         email: "gabriela.castillo@example.com",
         password: "pass91011",
@@ -136,7 +123,6 @@ db.voluntario.insertMany([
         longitud: -70.94572199434975,
     },
     {
-        _id: 14,
         nombre: "Mauricio Pinto",
         email: "mauricio.pinto@example.com",
         password: "pass1213",
@@ -146,7 +132,6 @@ db.voluntario.insertMany([
         longitud: -70.31368820371438,
     },
     {
-        _id: 15,
         nombre: "Lucia Méndez",
         email: "lucia.mendez@example.com",
         password: "pass1415",
@@ -156,7 +141,6 @@ db.voluntario.insertMany([
         longitud: -70.31283756029991,
     },
     {
-        _id: 16,
         nombre: "Carmen Rosario",
         email: "carmen.reosario@example.com",
         password: "pass1234",
@@ -166,7 +150,6 @@ db.voluntario.insertMany([
         longitud: -70.13005699582126,
     },
     {
-        _id: 17,
         nombre: "Fernando Martinez",
         email: "fernando.martinez@example.com",
         password: "pass5678",
@@ -176,7 +159,6 @@ db.voluntario.insertMany([
         longitud: -70.13047671112301,
     },
     {
-        _id: 18,
         nombre: "Gabriela Gaete",
         email: "gabriela.gaete@example.com",
         password: "pass91011",
@@ -186,7 +168,6 @@ db.voluntario.insertMany([
         longitud: -70.1310180399508,
     },
     {
-        _id: 19,
         nombre: "Mauricio Martinez",
         email: "mauricio.martinez@example.com",
         password: "pass1213",
@@ -196,7 +177,6 @@ db.voluntario.insertMany([
         longitud: -70.13053487778923,
     },
     {
-        _id: 20,
         nombre: "Lucia Petinelli",
         email: "lucia.petinelli@example.com",
         password: "pass1415",
