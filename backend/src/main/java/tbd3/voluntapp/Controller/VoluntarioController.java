@@ -75,9 +75,9 @@ public class VoluntarioController {
     }
     @GetMapping("/init")
     public String init() {
-        Voluntario voluntario1 = new Voluntario("hola", "hola", "hola", "hola");
-        Voluntario voluntario2 = new Voluntario("adios", "adios", "adios", "adios");
-        Voluntario voluntario3 = new Voluntario("ej1", "ej1", "ej1", "ej1");
+        Voluntario voluntario1 = new Voluntario("hola", "hola", "hola", "hola", 0f, 0f);
+        Voluntario voluntario2 = new Voluntario("adios", "adios", "adios", "adios", 0f, 0f);
+        Voluntario voluntario3 = new Voluntario("ej1", "ej1", "ej1", "ej1", 0f, 0f);
         voluntarioService.register(voluntario1);
         voluntarioService.register(voluntario2);
         voluntarioService.register(voluntario3);
